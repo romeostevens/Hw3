@@ -1,0 +1,7 @@
+landing page displays - Rod
+rating system works - Romeo
+random poem is featured - Derick
+random poem works - Rod
+Javascript validation - Romeo
+scrub data before entering in database - Derick
+rhyme validating? - everyone
