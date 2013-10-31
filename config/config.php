@@ -1,8 +1,7 @@
 <?php
-global $host, $username, $password, $db;
+global $host, $username, $password;
 
 $host = "localhost";
 $username = "root";
 $password = "";
-$db = "Poem";
 ?>

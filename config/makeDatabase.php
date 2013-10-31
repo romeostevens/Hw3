@@ -1,5 +1,5 @@
 <?php
-include("./configs/config.php");
+include("../config/config.php");
 global $host, $username, $password;
 
 $connection = mysqli_connect($host, $username, $password);
@@ -8,20 +8,132 @@ if (mysqli_connect_errno($connection))
     echo "Fail to connect" . mysqli_connect_error();
 }
 
-$db = "CREATE DATABASE PeomSite";
+$drop = "DROP DATABASE PoemSite";
 
-$connection = mysqli_select_db($db);
+if(!mysqli_query($connection, $drop)){
+    die("0 error: " . mysqli_error($connection));
+}
+echo "Database dropped";
+$db = "CREATE DATABASE PoemSite";
 
-$poem = "CREATE TABLE PoemSite(title CHAR(100), author CHAR(100), 
-    body CHAR(1000), rating INT)";
+mysqli_query($connection, $db);
 
-mysqli_query($connection, "INSERT INTO poem(title, author, body, rating)
-    VALUES ('testing', 'test', 'lalalala', 3.5)");
+mysqli_select_db($connection, "PoemSite");
 
-if(!mysqli_query($connection, $sql))
-    die('error: ' . mysqil_error($connection);
+$poem = "CREATE TABLE poem(title CHAR(100), author CHAR(100),
+    body TEXT(1000), rating INT)";
 
-echo "1 record added";
+if(!mysqli_query($connection, $poem)){
+    die('1 error: ' . mysqli_error($connection));
+}
 
-mysqli_query($connection);
+//Add first poem
+$queries = "INSERT INTO poem(title, author, body, rating)
+    VALUES ('testing', 'test', '1', 3)";
+
+if(!mysqli_query($connection, $queries)){
+    die('1 error: ' . mysqli_error($connection));
+}
+echo " 1 record added";
+
+//Add second poem
+$queries = "INSERT INTO poem(title, author, body, rating)
+    VALUES ('testing', 'test', '2', 3)";
+
+if(!mysqli_query($connection, $queries)){
+    die('2 error: ' . mysqli_error($connection));
+}
+
+echo " 2 record added";
+
+//Add third poem
+$queries = "INSERT INTO poem(title, author, body, rating)
+    VALUES ('testing', 'test', '3', 3)";
+
+if(!mysqli_query($connection, $queries)){
+    die('3 error: ' . mysqli_error($connection));
+}
+
+echo " 3 record added";
+
+//add 4 poem
+$queries = "INSERT INTO poem(title, author, body, rating)
+    VALUES ('testing', 'test', '4', 3)";
+
+if(!mysqli_query($connection, $queries)){
+    die('4 error: ' . mysqli_error($connection));
+}
+
+echo " 4 record added";
+
+//add 5 poem
+$queries = "INSERT INTO poem(title, author, body, rating)
+    VALUES ('testing', 'test', '5', 3)";
+
+if(!mysqli_query($connection, $queries)){
+    die('5 error: ' . mysqli_error($connection));
+}
+
+echo " 5 record added";
+
+//add 6 poem
+$queries = "INSERT INTO poem(title, author, body, rating)
+    VALUES ('testing', 'test', '6', 3)";
+
+if(!mysqli_query($connection, $queries)){
+    die('6 error: ' . mysqli_error($connection));
+}
+
+echo "6 record added";
+
+//add 7 poem
+$queries = "INSERT INTO poem(title, author, body, rating)
+    VALUES ('testing', 'test', '7', 3)";
+
+if(!mysqli_query($connection, $queries)){
+    die('7 error: ' . mysqli_error($connection));
+}
+
+echo "7 record added";
+
+//add 8 poem
+$queries = "INSERT INTO poem(title, author, body, rating)
+    VALUES ('testing', 'test', '8', 3)";
+
+if(!mysqli_query($connection, $queries)){
+    die('8 error: ' . mysqli_error($connection));
+}
+
+echo "8 record added";
+
+//add 9 poem
+$queries = "INSERT INTO poem(title, author, body, rating)
+    VALUES ('testing', 'test', '9', 3)";
+
+if(!mysqli_query($connection, $queries)){
+    die('9 error: ' . mysqli_error($connection));
+}
+
+echo "9 record added";
+
+//add 10 poem
+$queries = "INSERT INTO poem(title, author, body, rating)
+    VALUES ('testing', 'test', '10', 3)";
+
+if(!mysqli_query($connection, $queries)){
+    die('10 error: ' . mysqli_error($connection));
+}
+
+echo "10 record added";
+
+$name = '1';
+$query = "SELECT * FROM poem WHERE rand()";
+$result = mysqli_query($connection, $query);
+if(!$result){
+    die("failed" . mysqli_error($connection));
+}
+$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+echo $row['body'];
+
+mysqli_close($connection);
 ?>
