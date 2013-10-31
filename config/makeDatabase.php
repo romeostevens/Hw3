@@ -10,9 +10,10 @@ if (mysqli_connect_errno($connection))
 
 $drop = "DROP DATABASE PoemSite";
 
-if(!mysqli_query($connection, $drop)){
+if(!mysqli_query($connection, "DROP DATABASE IF EXISTS PoemSite")){
     die("0 error: " . mysqli_error($connection));
 }
+
 echo "Database dropped";
 $db = "CREATE DATABASE PoemSite";
 
@@ -20,7 +21,7 @@ mysqli_query($connection, $db);
 
 mysqli_select_db($connection, "PoemSite");
 
-$poem = "CREATE TABLE poem(title CHAR(100), author CHAR(100),
+$poem = "CREATE TABLE poem(id INT, title CHAR(100), author CHAR(100),
     body TEXT(1000), rating INT)";
 
 if(!mysqli_query($connection, $poem)){
@@ -28,8 +29,8 @@ if(!mysqli_query($connection, $poem)){
 }
 
 //Add first poem
-$queries = "INSERT INTO poem(title, author, body, rating)
-    VALUES ('testing', 'test', '1', 3)";
+$queries = "INSERT INTO poem(id, title, author, body, rating)
+    VALUES (1, 'testing', 'test', '1', 3)";
 
 if(!mysqli_query($connection, $queries)){
     die('1 error: ' . mysqli_error($connection));
@@ -37,8 +38,8 @@ if(!mysqli_query($connection, $queries)){
 echo " 1 record added";
 
 //Add second poem
-$queries = "INSERT INTO poem(title, author, body, rating)
-    VALUES ('testing', 'test', '2', 3)";
+$queries = "INSERT INTO poem(id, title, author, body, rating)
+    VALUES (2, 'testing', 'test', '2', 3)";
 
 if(!mysqli_query($connection, $queries)){
     die('2 error: ' . mysqli_error($connection));
@@ -47,8 +48,8 @@ if(!mysqli_query($connection, $queries)){
 echo " 2 record added";
 
 //Add third poem
-$queries = "INSERT INTO poem(title, author, body, rating)
-    VALUES ('testing', 'test', '3', 3)";
+$queries = "INSERT INTO poem(id, title, author, body, rating)
+    VALUES (3, 'testing', 'test', '3', 3)";
 
 if(!mysqli_query($connection, $queries)){
     die('3 error: ' . mysqli_error($connection));
@@ -57,8 +58,8 @@ if(!mysqli_query($connection, $queries)){
 echo " 3 record added";
 
 //add 4 poem
-$queries = "INSERT INTO poem(title, author, body, rating)
-    VALUES ('testing', 'test', '4', 3)";
+$queries = "INSERT INTO poem(id, title, author, body, rating)
+    VALUES (4, 'testing', 'test', '4', 3)";
 
 if(!mysqli_query($connection, $queries)){
     die('4 error: ' . mysqli_error($connection));
@@ -67,8 +68,8 @@ if(!mysqli_query($connection, $queries)){
 echo " 4 record added";
 
 //add 5 poem
-$queries = "INSERT INTO poem(title, author, body, rating)
-    VALUES ('testing', 'test', '5', 3)";
+$queries = "INSERT INTO poem(id, title, author, body, rating)
+    VALUES (5, 'testing', 'test', '5', 3)";
 
 if(!mysqli_query($connection, $queries)){
     die('5 error: ' . mysqli_error($connection));
@@ -77,8 +78,8 @@ if(!mysqli_query($connection, $queries)){
 echo " 5 record added";
 
 //add 6 poem
-$queries = "INSERT INTO poem(title, author, body, rating)
-    VALUES ('testing', 'test', '6', 3)";
+$queries = "INSERT INTO poem(id, title, author, body, rating)
+    VALUES (6, 'testing', 'test', '6', 5)";
 
 if(!mysqli_query($connection, $queries)){
     die('6 error: ' . mysqli_error($connection));
@@ -87,8 +88,8 @@ if(!mysqli_query($connection, $queries)){
 echo "6 record added";
 
 //add 7 poem
-$queries = "INSERT INTO poem(title, author, body, rating)
-    VALUES ('testing', 'test', '7', 3)";
+$queries = "INSERT INTO poem(id, title, author, body, rating)
+    VALUES (7, 'testing', 'test', '7', 3)";
 
 if(!mysqli_query($connection, $queries)){
     die('7 error: ' . mysqli_error($connection));
@@ -97,8 +98,8 @@ if(!mysqli_query($connection, $queries)){
 echo "7 record added";
 
 //add 8 poem
-$queries = "INSERT INTO poem(title, author, body, rating)
-    VALUES ('testing', 'test', '8', 3)";
+$queries = "INSERT INTO poem(id, title, author, body, rating)
+    VALUES (8, 'testing', 'test', '8', 5)";
 
 if(!mysqli_query($connection, $queries)){
     die('8 error: ' . mysqli_error($connection));
@@ -107,8 +108,8 @@ if(!mysqli_query($connection, $queries)){
 echo "8 record added";
 
 //add 9 poem
-$queries = "INSERT INTO poem(title, author, body, rating)
-    VALUES ('testing', 'test', '9', 3)";
+$queries = "INSERT INTO poem(id, title, author, body, rating)
+    VALUES (9, 'testing', 'test', '9', 4)";
 
 if(!mysqli_query($connection, $queries)){
     die('9 error: ' . mysqli_error($connection));
@@ -117,8 +118,8 @@ if(!mysqli_query($connection, $queries)){
 echo "9 record added";
 
 //add 10 poem
-$queries = "INSERT INTO poem(title, author, body, rating)
-    VALUES ('testing', 'test', '10', 3)";
+$queries = "INSERT INTO poem(id, title, author, body, rating)
+    VALUES (10, 'testing', 'test', '10', 3)";
 
 if(!mysqli_query($connection, $queries)){
     die('10 error: ' . mysqli_error($connection));

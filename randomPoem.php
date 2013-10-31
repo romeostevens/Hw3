@@ -1,10 +1,11 @@
+
 <html>
  <head>
   <title>Looney Limmericks</title>
  </head>
  <body>
-  <h1>Featured Poem</h1>
- <?php 
+  <h1>Random Poem</h1>
+<?php
  include("./config/config.php");
 global $host, $username, $password;
 
@@ -28,9 +29,10 @@ $query = "SELECT * FROM poem WHERE rand()";
         echo "<br>";
         echo "Current Rating:";
         echo $row['rating'];
-  ?>
-  <br>
-  Rate The featured poem 1-5 stars!
+
+?>
+<br>
+Rate The random poem 1-5 stars!
 <form name="rating" action="./controllers/rating.php" method="POST">
 <input type="radio" name="group1" value="1"> 1Star 
 <input type="radio" name="group1" value="2"> 2Star
@@ -39,11 +41,7 @@ $query = "SELECT * FROM poem WHERE rand()";
 <input type="radio" name="group1" value="5"> 5Star 
 <input type="submit" value="Submit Your Rating" />
 <br>
- <a href="submit.php">Submit a new Poem</a>
- <br>
-  <a href="randomPoem.php">View a Random Poem</a>
-  <br>
-  <?php
+<?php
   echo "Most Recent 10";
 	for($i = 10, $j=1; $i>0; $i--, $j++){
     $query = "SELECT * FROM poem WHERE id = '$i'";
@@ -57,20 +55,11 @@ $query = "SELECT * FROM poem WHERE rand()";
     echo $j. " ";
 	echo "<a href='./topTen.php'".$name."//>".$name."<//a>";
 	}
-	
-	$query = "SELECT * FROM poem ORDER BY rating DESC";
-$result = mysqli_query($connection, $query);
-if(!$result){ 
-    die(mysqli_error($connection));
-}
-
-echo "<br>";
+	echo "<br>";
 echo "Top Ten highest average rating";
 echo "<br>";
 while($row = mysqli_fetch_array($result)){
     echo $row['title'];
     echo "<br>";
 }
-?>
-	</body>
-	</html>
+	?>

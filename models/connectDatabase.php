@@ -1,5 +1,5 @@
 <?php
-include("../configs/config.php");
+include("../config/config.php");
 global $host, $username, $password;
 
 class ConnectDatabase{
