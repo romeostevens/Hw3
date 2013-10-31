@@ -1,7 +1,12 @@
 <?php
 class Database extends connectDatabase{
     function randomPoem(){
-        $query = "";
+        $query = "SELECT * FROM poem WHERE rand()";
+        $result = mysqli_query($connection, $query);
+        if(!$result){
+            die("failed" . mysqli_error($connection));
+        }
+        return $result;
     }
     
     function specificPoem($name){
